@@ -43,6 +43,8 @@ roblox_execution_environment: ServerScriptService
 | Store | Key | Value | Source note |
 |---|---|---|---|
 | `TopTeams_<Season>` | `<userId>` | Team rating | [[Social & Multiplayer]] |
+| `LB_Fame_v1` | `<userId>` | All-time Fame (Stage 3+ players), written by LeaderboardService at most once a minute when it changes and on leave | [[Social & Multiplayer]] → Leaderboards |
+| `LB_Trophies_v1` | `<userId>` | Trophy count | [[Social & Multiplayer]] → Leaderboards |
 
 ## Caches (MemoryStore, can be lost)
 | Map | Rebuilt from | Source note |

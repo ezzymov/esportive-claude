@@ -1,6 +1,6 @@
 ---
 tags: [system, world, map, design]
-status: designed
+status: building
 priority: P0
 stage: 1
 updated: 2026-10-21

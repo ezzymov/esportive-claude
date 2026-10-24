@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Start
-status: designed
+status: building
 ---
 # Screen - Start
 
@@ -52,7 +52,7 @@ _Not drawn yet. Add `Mockups - Ours/Start v1` when the layout is approved._
 ## Data it reads / remotes it calls
 - Reads `Profile.Flags.IntroSeen` (boolean). If false → cutscene, else → garage.
 - No remote calls. The choice is local. The server still knows which plot to load from the normal join flow ([[Data Persistence]]).
-- ⚠ `Profile.Flags.IntroSeen` isn't in [[Data Schema]] yet. Add it there with the intro's acceptance criteria.
+- ✅ `Profile.Flags.IntroSeen` is in [[Data Schema]] (M1, 2026-10-23).
 
 ## Rules
 - No timers, no "limited time" text, no pay prompts on this screen ([[Monetization]] principles).

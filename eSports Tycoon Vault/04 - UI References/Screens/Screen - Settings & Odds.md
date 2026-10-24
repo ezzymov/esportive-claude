@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Settings & Odds
-status: designed
+status: building
 ---
 # Screen - Settings & Odds
 

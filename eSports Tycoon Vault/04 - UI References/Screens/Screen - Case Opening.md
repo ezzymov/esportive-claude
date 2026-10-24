@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Case Opening
-status: designed
+status: building
 ---
 # Screen - Case Opening
 

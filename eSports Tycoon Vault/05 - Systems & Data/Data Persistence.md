@@ -1,9 +1,9 @@
 ---
 tags: [system, data, persistence]
-status: designed
+status: building
 priority: P0
 stage: 1
-updated: 2026-10-21
+updated: 2026-10-22
 system_type: Infrastructure
 engine_layer: ServerService
 dependencies:
@@ -94,5 +94,5 @@ DataService.ProfileReleasing : Signal(player, profile)  -- last chance for servi
 - [ ] Admin can restore a player to yesterday's version from [[Admin Panel]].
 
 ## Open questions
-- Use ProfileStore's `Mock` store in Studio by default, with a toggle for live API access?
-- Do we need a "Saved ✓" tick for every autosave, or only for forced saves?
+- ~~Use ProfileStore's `Mock` store in Studio by default, with a toggle for live API access?~~ **Decided 2026-10-22:** yes. ProfileStore switches to its mock store automatically when Studio API access is off; `ForceMockInStudio` in `DataService/Config` forces the mock even with access on.
+- ~~Do we need a "Saved ✓" tick for every autosave, or only for forced saves?~~ **Decided 2026-10-22:** forced saves only (`SaveNow`), sent over `Data/Saved`.

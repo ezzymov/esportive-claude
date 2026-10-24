@@ -1,6 +1,6 @@
 ---
 tags: [feature, cosmetics, identity, hq]
-status: designed
+status: building
 priority: P1
 stage: 1
 updated: 2026-10-21

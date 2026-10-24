@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Tech Shop
-status: designed
+status: building
 ---
 # Screen - Tech Shop
 

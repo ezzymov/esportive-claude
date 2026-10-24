@@ -70,5 +70,40 @@ Each player entry also carries `MatchRating` (see [[Skill Levels & Ratings]]). P
 - Same stats, full gear vs no gear (Full mode): ~65–70%. Same matchup in Pure mode: 50%.
 - Average match length watched: 45–75 s.
 
+### M1 measured (2026-10-23, `K = 1`, 4,000 matches each)
+| Matchup | Target | Measured | Avg score |
+|---|---|---|---|
+| Equal (170 vs 170) | 50% | 49.0% | 11.3–11.4 |
+| +20% (204 vs 170) | ~70% | 70.4% | 12.4–10.0 |
+| 2× (340 vs 170) | ~92% | **99.4%** | 13.0–4.3 |
+- ⚠ **Open:** the 2× target can't be hit with a per-round clamp: even 8% per round almost never adds up to a first-to-13 upset. Options: (a) accept ~99% at 2× and drop the 92% target, (b) add a match-level upset floor (e.g. 8% of matches run with pRound pulled toward 0.5), or (c) a lower K with a softer curve. Equal and +20% are on target.
+- M1 implements the Stage 1 subset: PlayerPower uses base stats + accessory gear × Aim Arena title weights (Aim .30, Reflexes .25, Game Sense .15, Teamwork .10, Clutch .10, Consistency .10) × moraleMult; TeamPower adds synergy. No parts, fatigue, traits, chemistry, staff, maps yet.
+- Clutch Moment: offered on the first match-point round; a timing tap adds up to +10% pRound on that round only. The server simulates up to that round, waits for the tap (or Skip = 0), then finishes. Rewards are granted when the match resolves, also on timeout (120 s) or when the player leaves.
+
+### M2/M3 build (2026-10-23)
+Code: `MatchService/Sim` (engine), `Teams` (AI teams, entries, snapshots), `Tournament`; numbers in `Config/Match`, `Maps`, `AITeams`, `Traits`.
+- **PlayerPower** = Σ((stat + gear) × map-adjusted title weight × (1 + trait stat mults)) × (1 + partMult) × moraleMult × fatigueMult × (1 + trait "all stats" mults that hold this round). Map leans are added to the title weights, then re-normalized.
+- **TeamPower** = Σ PlayerPower × chemistry (incl. Team Leader +5%) × synergy × MapFit × MapMastery. Coach, tactic and home field stay 1 until staff/arenas exist. Pure mode = no gear, no parts.
+- **Trait conditions per round:** match point, trailing by 4+, ahead/behind, first 5 rounds / after, 3 lost rounds in a row, night/morning (UTC hour of the match), finals, scrims. Trait bonus per stat capped at ±30%.
+- **Round detail:** winner from pRound, then the winners lose Binomial(4, q) players, q = clamp(0.25 + 0.4 × the loser's pRound, 0.12–0.55). Kill order is shuffled with the round-ending kill last; killers weighted by Aim + Reflexes (Entry ×1.5 on the opening duel). Clutch = the winners' last player standing vs 2+.
+- **Clip Moments** (top 6 kept): Ace 90, Clutch 75 + 5 per extra enemy, Flawless 50, Comeback 85 (won after trailing by 5+), Upset 80 (beat 1.5× power), Record 60 (personal best kills). ~2.7–3.4 per match.
+- **Match Rating:** 0.45 kills + 0.25 survival + 0.30 impact (opening kills, clutches ×2, 3+ kill rounds), each vs the 10-player average. Damage and assists aren't simulated yet, so their weight moved to these three.
+- **Deterministic:** same setup + seed → same match. Tournament rounds resolve later (even offline) and replays regenerate from the stored seed + lineup snapshot; verified in Studio (replayed final = recorded 14–16).
+- Clutch Moment input: Pickup Games and scrims. Tournaments take no input (they can resolve while you're offline).
+- Payload: plan with rounds up to the Clutch Moment ~5.8 KB, the rest + result ~2.3 KB.
+
+### M2/M3 measured (2026-10-23, 1,000 matches per gap, `Tests.MatchUpsets`)
+| Stronger team | Target | `K = 1`, no floor | Upset floor `{ Chance = 0.16, Pull = 0 }` |
+|---|---|---|---|
+| Equal | 50% | 48.0% | 51.8% |
+| +10% | — | 61.2% | 59.8% |
+| +20% | ~70% | 73.4% | 69.4% |
+| +30% | — | 80.9% | 78.7% |
+| +50% | — | 94.0% | 84.9% |
+| 2× | ~92% | 100.0% | 91.9% |
+| 2.5× | — | 100.0% | 92.1% |
+- Option (b) works if it plays 16% of matches as a coin flip (Pull 0): 1 − 0.16/2 = 92% at 2×, and only ~3 points off the +20% case. A half-gap pull (Pull 0.5) barely moves 2× (99%). The floor is in `Config/Match.UpsetFloor`, **off** until the target is decided.
+
 ## Testing
-- Command bar script `MatchSim:RunBatch(teamA, teamB, 10000)` prints win rate and average score to verify tuning.
+- Command bar: `print(require(game.ServerScriptService.Services.MatchService.Sim).Batch(powerA, powerB, 10000))` prints the win rate and average score to verify tuning.
+- Full sweep: `require(game.ServerScriptService.Tests.MatchUpsets).Run()` prints the upset rate at 0–150% power gaps, with and without the upset floor.

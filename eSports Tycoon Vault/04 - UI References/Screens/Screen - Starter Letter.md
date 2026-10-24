@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Starter Letter
-status: designed
+status: building
 ---
 # Screen - Starter Letter
 
@@ -56,7 +56,7 @@ _Not drawn yet. Add `Mockups - Ours/Starter Letter v1` when the layout is approv
 ## Data it reads / remotes it calls
 - Reads `Profile.Flags.StarterLetterSeen` (boolean). If true, the screen never shows.
 - Calls `Starter/Collect` (RF, no args). Returns the starter cash amount. The server grants it once and sets the flag. Client never grants money.
-- ⚠ `Flags.StarterLetterSeen` and `Starter/Collect` aren't in [[Data Schema]] or [[Services & Remotes]] yet. Add them with the intro acceptance criteria.
+- ✅ `Flags.StarterLetterSeen` is in [[Data Schema]] and `Starter/Collect` in [[Services & Remotes]] (M1, 2026-10-23). Gift = $50 ([[Balance Tables]] → Stage 1 numbers).
 - Amount comes from [[Economy Design]] starter formulas (not fixed here).
 
 ## Rules

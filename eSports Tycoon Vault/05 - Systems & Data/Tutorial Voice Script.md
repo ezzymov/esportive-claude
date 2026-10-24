@@ -133,6 +133,9 @@ Each step has: **Intro** (plays when the step starts), **Hint** (60 s stall text
 ### 13 · Promotion
 | Id | Speaker | Line | Direction | Status | Asset |
 |---|---|---|---|---|---|
+| TUT_PROMO_1 | Dee | "Win a few more and people will notice. That's Fame, right?" | Curious, guessing at the word (new 2026-10-23: step 13 is now "Reach 100 Fame") | ☐ | |
+| TUT_PROMO_HINT | Dee | "Play another Pickup Game. Wins bring Fame." | Helpful | ☐ | |
+| TUT_PROMO_CALL | Dee | "The café down the street wants teams with a bit of a name. Win a couple more and they'll call." | Conspiratorial, sets up Stage 2 | ☐ | |
 | TUT_RENAME_REMIND | Dee | "Last chance to change your team name for free." | Friendly warning (plays before promotion) | ☐ | |
 | HEC_PROMO_S2 | Hector | "Café Rookies, here they come! Out of the garage!" | Full hype | ☐ | |
 | TUT_GRADUATE | Dee | "You did it, kid. I'm keeping the old mouse. For the wall." | Proud, a little emotional · xo Dee | ☐ | |
@@ -219,13 +222,13 @@ One line per screen. These explain the screen in Dee's words; the card text can 
 ## Line count
 | Group | Dee | Hector |
 |---|---|---|
-| Stage 1 steps | 49 | 5 |
+| Stage 1 steps | 52 | 5 |
 | Situational | 6 | 0 |
 | Unlock lessons | 32 | 1 |
 | "?" cards | 16 | 0 |
-| **Total** | **103** | **6** |
+| **Total** | **106** | **6** |
 
-~109 lines × 2 takes. At ~3–5 s per line that's roughly **8–10 minutes of finished audio**.
+~112 lines × 2 takes. At ~3–5 s per line that's roughly **8–10 minutes of finished audio**.
 
 ## Open questions
 - Is "Mrs. Park" and her cat a recurring neighbor? (Easy callback in later Tech Fix jobs.)

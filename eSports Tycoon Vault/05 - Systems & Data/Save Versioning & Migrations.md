@@ -55,7 +55,8 @@ end
 return Migrations
 ```
 
-Load order: **StartSession → Migrations.Run → Reconcile → save guard baseline → ProfileLoaded**.
+Load order: **StartSession → version check → Migrations.Run → Reconcile → save guard baseline → ProfileLoaded**.
+The version check runs before migrations: a save newer than `CURRENT_VERSION` goes read-only before any code touches it (see *Forward compatibility*).
 
 ## Rules for writing a migration
 1. **One step per version.** Never jump from v1 to v4 directly. A v1 save runs 1→2→3→4.

@@ -1,6 +1,6 @@
 ---
 tags: [feature, system, stage/1]
-status: idea
+status: building
 priority: P0
 stage: 1
 system_type: UIController
@@ -99,13 +99,26 @@ Matches the [[Stage 1 - Garage Squad]] beat sheet. Each step completes on a **se
 | 8 | `SecondDesk` | Buy a 2nd desk ($300) | Dee: "You can't carry the team alone. Literally." | Desk bought | "Hiring" sign |
 | 9 | `FirstHire` | Hire your first teammate | Dee: "Your friend Rusty's looking for a team…" | `PlayerHired` | Rusty intro mini-scene |
 | 10 | `TeamPug` | Pickup Game with your squad | Dee: "Two of you now. Go win something." (Hector shout on win: "The dynasty begins!") | Match won | Free Rookie Crate |
-| 11 | `FirstUnbox` | Open the crate | Dee: "If it glows blue, that's good. I think." | `CaseOpened` (Starter Crate) | Guaranteed Rare |
+| 11 | `FirstUnbox` | Open the crate | Dee: "If it glows blue, that's good. I think." | `CaseOpened` (Rookie Crate) | Guaranteed Rare |
 | 12 | `SeatRare` | Seat your new player | Dee: "Third desk's on me. Kidding. $X." | 3 players seated | Income up |
-| 13 | `Promotion` | — | Hector: "Café Rookies, here we come!" | Fame ≥ 100 | Stage 2 cinematic, "Garage Graduate" badge |
+| 13 | `Promotion` | Reach 100 Fame | Dee: "Win a few more and people will notice." (Hector on promotion: "Café Rookies, here they come!") | Fame ≥ 100 **and** 3 players seated | Stage 2 promotion banner, "Garage Graduate" badge, +25 Gems |
 
 **Out-of-order rule:** when a step starts, the server checks whether it's already done (for example, the player bought the 2nd desk early). If so, it completes at once and moves on. The player never has to redo something.
 
 **Free roam:** the tracker never locks movement or the menus, and nothing is a hard lock.
+
+**Unlock gating (M1, 2026-10-23):** a few things switch on when the tutorial reaches them, so the garage reveals itself in beat order. Everything else (pads, Pickup Games) works out of order.
+| Thing | Turns on at |
+|---|---|
+| Aim Trainer cabinet ("flickers on", screen lights up) | Step 5 `AimTrainer` starts |
+| First Tech Fix job (neighbor's PC on the bench) | Step 6 `TechFix` starts; then 1 job per 90 s |
+| Better Mouse pad | First Pickup Game won |
+| Free-agent board (cork board) | 2nd desk bought |
+| 3rd desk pad | First hire |
+- Step 3 `SitDesk` completes after 5 s seated (or once any Pickup Game was played). Step 10 `TeamPug` completes when the Rookie Crate is earned (first team-game win).
+- Stall clock pauses while a menu or cinematic is open; queued Dee texts also wait until the cinematic ends (no popups during the intro or a match broadcast).
+- The whiteboard in the garage shows the current goal ("GOAL: BUY A 2ND DESK").
+- Not built in M1: "I've played before" skip, Hint level setting, spotlight dim, the edge-of-screen pointer (only Dee's "garage is this way" text), Dee's Tips replay, voice audio (captions only; `SoundId` slots are ready).
 
 **Team name (decided 2026-10-20):** the Team Creator opens with a ready-made **auto-name** (e.g. "Garage Squad" + random tag) that the player can accept with one tap or replace. Renaming is **free until Stage 2**; Dee reminds them once before the promotion ("Last chance to change that name for free!"). From Stage 2 on, renaming costs **39 R$** ([[Microtransaction Ideas]] → Name Change). Every name goes through TextService filtering.
 

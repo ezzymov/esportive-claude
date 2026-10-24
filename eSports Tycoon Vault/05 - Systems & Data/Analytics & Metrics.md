@@ -7,6 +7,9 @@ Use Roblox `AnalyticsService` (funnels, economy, custom events) plus the Creator
 
 ## Funnels
 **FTUE funnel** (from [[Stage 1 - Garage Squad]]): Join → Intro finished/skipped → Team named → Power On → First Pickup Game win → First Tech Fix → 2nd desk → First hire → First unbox → Stage 2.
+- **As built (M1, 2026-10-23):** `LogOnboardingFunnelStepEvent`, one step per tutorial beat. Step numbers are fixed once live: 1 Join · 2 IntroDone · 3 TeamNamed · 4 PowerOn · 5 SitDesk · 6 FirstPickupWin · 7 AimTrainer · 8 FirstTechFix · 9 FirstUpgrade · 10 SecondDesk · 11 FirstHire · 12 TeamPugWin · 13 FirstUnbox · 14 ThirdDesk · 15 Stage2. Each step is logged once per profile, with its play-time second saved in `Ftue.Funnel`.
+- Stage 1 success metrics map to: finish/skip intro = step 2, win first Pickup Game = 6, first hire = 11, first unbox = 13, Stage 2 = 15.
+
 **Stage funnel:** reach each Stage 1–10.
 **Monetization funnel:** Store opened → item viewed → prompt shown → purchase.
 
@@ -22,6 +25,15 @@ Log every source and sink with `LogEconomyEvent` (currency, amount, balance afte
 | SponsorSigned | brandId, tier |
 | Rebirth | count, LP, timeInRun |
 | TutorialStepSkipped | step |
+| IntroStarted / IntroSkipped / IntroFinished | value = second reached, replay |
+| TutorialStepStarted / TutorialStepCompleted | step (value = step index / seconds on the step) |
+| TutorialStallHint | step (value = level 1 hint, 2 call) |
+| PlayerHired | key, rarity, discount (value = price) |
+| RustyDiscount | value = play seconds when the 12-min guardrail fired |
+| AimTrainerRun / TechFixDone | pay, seconds (value = hits / pay) |
+| StageReached | value = stage |
+| Suspicious events (`rate_limited`, `bad_remote_args`, `aim_score_cap`, `setup_too_fast`, `techfix_too_fast`, `pad_too_far`…) | detail |
+- Economy events: every `Transact` logs `LogEconomyEvent` except the per-second income tick, which is summed into one event per minute.
 
 ## Targets (launch)
 | Metric | Target |

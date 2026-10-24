@@ -119,6 +119,8 @@ Desk 2 → first hire (Rusty) → Desk 3 → fairy lights along the ceiling → 
  └──── painted garage door ──────────────┴── café door + awning ┘
 ```
 
+**Greybox build (M2, 2026-10-23):** the café is its **own building** against the garage's right wall (36 × 32 studs, exposed brick, its own door with a team-color awning and a neon OPEN sign), not a knocked-through wall: the garage shell stays the same for every plot and the annex appears per owner at Stage 2 (the Zone A café ghost outline hides). Inside: Tech Shop counter with boxed parts and an espresso machine, Reaction Test cabinet, case vault (fridge front + pedestal + spotlight), and café PCs 4–5 as pads. The garage keeps desks 1–3; the trophy shelf goes up on the garage back wall at Stage 3. Knocking through the wall, the painted garage door, the tip-jar collector and café sound/lighting are for the art pass.
+
 ### Inside
 - **Café floor:** a row of 5 rented café PCs on high counters with stools: the 5-slot roster. Menu chalkboard reused as the **roster board** (names in chalk).
 - **Tech Shop counter:** the old coffee counter. Shelves behind it hold boxed parts from the fictional brands (NovaCore, Vektor, Pulse Audio, see [[Content Catalog]]). Espresso machine still on the end. Prompt → [[Screen - Tech Shop]].

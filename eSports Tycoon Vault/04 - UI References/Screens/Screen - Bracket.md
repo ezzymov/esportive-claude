@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Bracket
-status: designed
+status: building
 ---
 # Screen - Bracket
 

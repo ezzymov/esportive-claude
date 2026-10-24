@@ -16,6 +16,8 @@ Companion to [[Progression Guide]] and [[Stage 1 - Garage Squad]]. Each stage: *
 | Stage boss: **Café LAN Night** (3-match mini-bracket vs AI) | Win 2 of 3 | Fame burst, Pro Crate preview |
 | Cinematic | — | "Local Circuit is calling." Stage 3 |
 
+**M2 build (2026-10-23):** everything above except **Café LAN Night** (not built) and the Tech Shop tutorial popup. The Fame from 100 to 500 comes from Pickup Games, whose lobbies get tougher at Stage 2 (OVR 34–48) so wins keep paying ~40–60 ★. Reaching 500 Fame shows the "PROMOTED! Stage 3: Local Circuit" banner (+25 💎). Café LAN Night can come back as a second entry in `Config/Competition.Tournaments` (the timed-tournament code takes any team count), if Stage 2 needs its boss.
+
 ## Stage 3 — Local Circuit (Fame 500, 45 min–2 h)
 | Beat | Player action | Reward |
 |---|---|---|

@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Team Creator
-status: designed
+status: building
 ---
 # Screen - Team Creator
 

@@ -1,6 +1,6 @@
 ---
 tags: [feature]
-status: designed
+status: building
 priority: P0
 stage: 1
 system_type: CoreMechanic
@@ -48,7 +48,7 @@ Minigames: [[Playable Games]]. Founder can also use the Training Center like any
 Before you can hire anyone, you earn your first cash:
 | Way to earn | How | Typical pay |
 |---|---|---|
-| **Your station** | Sit at your PC: it earns while you're seated (you're "practicing on stream") | $1/s |
+| **Your station** | Sit at your PC: it earns while you're seated (you're "practicing on stream") | ~$1.30/s (tier-1 $1 × (1 + OVR 30/100), [[Economy Design]] formula) |
 | **Pickup Games** | Solo-queue matches: you + 4 random AI teammates ("pugs") vs an AI team. Auto-sim with your Founder in the cutscene | $120–200 per win, $50 per loss |
 | **Aim Trainer** | Old arcade cabinet in the garage | $20–80 per run |
 | **Tech Fix jobs** | Neighbors bring broken PCs: quick repair minigame (plug cables, swap a part, clean dust) | $100–250 per job, 1 job per 90 s |

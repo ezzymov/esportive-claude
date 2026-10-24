@@ -93,7 +93,7 @@ Event items are marked "Limited" in the Collection Log and never return in the s
 | Mystery Mail | Fan mail ([[Fan Base & Arena]]) | 1 random small item |
 | Collector's Case | Completing a Collection set | Choose 1 of 3 items from that set |
 | Mythic Hype Box | Server gets a Mythic pull | Everyone in server gets 1 small item |
-| Starter Crate | Tutorial | Guaranteed Rare player (FTUE) |
+| Starter Crate (`StarterCrate`, shown as "Rookie Crate") | First team-game Pickup win (Stage 1 tutorial) | One Rare player, rolled when the crate is granted (no reroll on rejoin); doesn't touch pity |
 | Comeback Crate | Return after 7+ days away | Catch-up booster + Rare+ item |
 
 ## Crafting & choice cases (less random)
@@ -109,6 +109,13 @@ Skin drops roll seed, condition and finish: see [[Skin Pattern System]]. Which s
 
 ## Sticker Capsules
 13 capsules (Starter, Neon Nights, Critter, Snack, Meme-lite, Map, Agent, Hero, Champion, Signature, Legends Signature, Tournament, Event). Contents and finish odds: [[Sticker System]].
+
+## Pity and duplicates (built in M2, 2026-10-23)
+- One counter per rarity in `Profile.PityCounters` (family "Core" for now). The Nth open without that rarity or better is guaranteed it (Epic 10, Legendary 50, Mythic 300); the guaranteed open rolls among the case's rarities at or above it, by their odds.
+- **A counter only counts opens of cases that can drop that rarity.** Rookie Crates (0% Legendary) advance the Epic counter only, so cheap crates can't bank Legendary pity for a Pro Crate.
+- Duplicates become Shards (Common 5 · Uncommon 12 · Rare 30 · Epic 80 · Legendary 250 · Mythic 1,000): a part once you own one per desk, an accessory once you own one per roster player, a player once the roster is full.
+- The Pro Crate is sold from Stage 4, but the Local Cup winner gets one ([[Matches & Tournaments]]), so it can be opened earlier.
+- The Odds panel ([[Screen - Case Opening]], [[Screen - Settings & Odds]]) reads the same `Shared/CaseRoll` module the server rolls with. `Tests.CaseOdds` rolls 100,000 opens per case and checks actual vs configured odds and the pity gaps.
 
 ## Case mechanics ideas
 - **Pity bar** per case family (Core / Themed / Event), not per individual case.

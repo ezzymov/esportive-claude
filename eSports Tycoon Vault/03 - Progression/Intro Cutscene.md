@@ -1,6 +1,6 @@
 ---
 tags: [progression, cutscene, stage/1]
-status: designed
+status: building
 ---
 # Intro Cutscene — "The Drop-Off"
 

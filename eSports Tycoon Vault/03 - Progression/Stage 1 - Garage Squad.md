@@ -32,6 +32,27 @@ tags: [stage/1]
 - Player should have $250 for the first hire by **~8 min** even if they only sit at the desk and play the guaranteed Pickup Game.
 - If the player is slow (no hire by 12 min), Aunt Dee texts: "Your friend from school is looking for a team…" and Rusty's price drops to $100.
 - First unbox by **~11 min** ([[Progression Guide]] pacing rule).
+- **Guaranteed wins** (M1): the first ever Pickup Game is a pity win. Before the Rookie Crate is earned, a team Pickup Game after one team-game loss is also a guaranteed win, so the crate can't slip far past ~11 min.
+
+## Playtest — M1 build (2026-10-23)
+Scripted test run in Studio (bot using the real remotes, walking and pads, with human-length pauses for each match, minigame and popup; it sat at the desk and played a Pickup Game whenever the cooldown allowed while saving up). A first-time human who explores will be slower, so these are the **fast end**.
+| Beat | Sheet | Actual |
+|---|---|---|
+| Intro (watched fully) | 0:52 | 0:58 |
+| Name team | 0:50 | 1:37 |
+| PC setup / sit | 1:30 | 2:15 |
+| First Pickup win (pity) | 2:30 | 3:11 |
+| Aim Trainer | 4:00 | 3:56 |
+| Tech Fix | 5:30 | 4:18 |
+| Better mouse / 2nd desk | 6:30 / 7:30 | 4:18 / 4:24 |
+| Hire Rusty | 8:30 | 5:36 |
+| Team Pickup win → crate | 10:00 | 7:46 (one loss, then the crate pity win) |
+| First unbox (Rare) | 11:00 | 7:59 |
+| 3rd desk + promotion | 12:30 / 14:00 | 8:11 |
+
+- Guardrails: pity win ✓, unbox at 7:59 ✓, 12-min Rusty drop ✓ (tested with the `PlayTime` dev hook). Sit-only player affords mouse + desk + Rusty at ≈ 8:40 (calculated).
+- An efficient player has ~$600 by 4:20 (gift 50 + pickup 150 + aim ~50 + tech 200 + desk income), so purchases land well before the sheet's times.
+- **Pacing knobs** if human playtests also come in under ~12 min: Pickup Game cooldown (75 s), 3rd desk price ($500), or unlocking the mouse pad after Tech Fix instead of after the first win. Retune after a human playtest, not from the bot alone.
 
 ## Tutorial rules
 Full design: [[Tutorial & Onboarding]].

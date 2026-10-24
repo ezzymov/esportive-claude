@@ -1,6 +1,6 @@
 ---
 tags: [feature, cosmetics, progression]
-status: designed
+status: building
 priority: P1
 stage: 2
 updated: 2026-10-21
@@ -31,7 +31,7 @@ This is where cosmetics get a real job. Everything else stays pure style: jersey
 ## The six accessories
 | Accessory | Stat | Sticker slots | Unlock | Notes |
 |---|---|---|---|---|
-| **Mouse** | Aim | 2 | Stage 2 | Moved from PC parts |
+| **Mouse** | Aim | 2 | Stage 2 (Founder: Stage 1, see below) | Moved from PC parts |
 | **Keyboard** | Consistency | 3 | Stage 2 | Moved from PC parts |
 | **Headset** | Teamwork | 2 (ear cups) | Stage 2 | Moved from PC parts |
 | **Arm Sleeve** | Reflexes | 2 | Stage 3 | Compression sleeve on the mouse arm |
@@ -39,6 +39,8 @@ This is where cosmetics get a real job. Everything else stays pure style: jersey
 | **Lucky Charm** | Clutch | 1 (charm face) | Stage 3 | Clips onto the headset and swings with physics. Replaces the old headset/keyboard charm slot; monitor charms and the Aim Arena weapon charm stay cosmetic |
 
 An accessory **is** a skin: it uses the full [[Skin Pattern System]] (seed, condition, finish, Signature Patterns, phases, Tracker). The existing mouse, keyboard and headset skins in the [[Skin Library]] (Duct Tape, Pixel Pal, Comet Tail, Nebula…) are accessories now. The Tech Shop sells plain solid-color models (Rusty Clicker, Clikk Feather 2, Pulse Halo…, see [[Content Catalog]]).
+
+**Stage 1 exception (decided 2026-10-23):** the Founder starts with the **Taped Mouse** (Starter tier, +0) and the Stage 1 "Better Mouse" pad ($150, [[Stage 1 - Garage Squad]] 6:30 beat) swaps it for a plain Common **Clikk Basic** (+1 Aim as gear). It shows on the card as `Aim 28 +1`; OVR doesn't change (base stats only). Stickers and the other accessories still start at Stage 2.
 
 ## Where power comes from
 **1. Tier (the accessory's rarity) sets the base bonus.** Flat points on the accessory's stat:

@@ -1,7 +1,7 @@
 ---
 tags: [ui]
 screen: Main HUD
-status: designed
+status: building
 ---
 # Screen - Main HUD
 
@@ -89,6 +89,7 @@ Currency pill, rail button (labeled, colored, with `!` or count badge), progress
 
 ## States
 - New player (intro): only Cash pill, objective card, Phone and Gift. Roster appears with the first hire, Quests after the first quest is given; then each button pops in at its unlock (table above) with a pop-in tween + sparkle and a Dee text explaining it.
+- **As built (M1, 2026-10-23):** Stage 1 shows the Cash pill only; Fame lives in the stage ring (top right, "Stage 1 · Garage Squad ★ 60/100"); the Gems pill pops in at Stage 2 and Followers at Stage 4. Phone is on the right rail from the start; Roster joins the left rail with the first hire. The Gift and Quests buttons aren't built yet. Contextual slot in use: "▶ Play Pickup Game" (while seated at your desk, with the cooldown) and "🎁 Open Rookie Crate".
 - Attention badge (red circle with `!`, or a count) appears on a rail button when something new is available (claimable quest, new shop stock).
 - Currency change: number counts up over 0.4 s, pill pulses green (gain) or red (spend).
 

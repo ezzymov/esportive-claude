@@ -1,6 +1,6 @@
 ---
 tags: [feature]
-status: idea
+status: building
 priority: P0
 stage: 1
 system_type: Economy

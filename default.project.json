@@ -4,23 +4,30 @@
   "tree": {
     "$className": "DataModel",
 
+    "ReplicatedFirst": {
+      "$path": "src/first"
+    },
+
     "ReplicatedStorage": {
       "Shared": {
         "$path": "src/shared"
+      },
+      "Remotes": {
+        "$className": "Folder"
       }
     },
 
     "ServerScriptService": {
-      "Server": {
-        "$path": "src/server"
-      }
+      "$path": "src/server"
+    },
+
+    "StarterGui": {
+      "$path": "src/gui"
     },
 
     "StarterPlayer": {
       "StarterPlayerScripts": {
-        "Client": {
-          "$path": "src/client"
-        }
+        "$path": "src/client"
       }
     }
   }

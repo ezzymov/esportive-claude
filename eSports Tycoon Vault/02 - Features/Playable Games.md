@@ -1,6 +1,6 @@
 ---
 tags: [feature]
-status: idea
+status: building
 priority: P1
 stage: 2
 system_type: CoreMechanic

@@ -1,6 +1,6 @@
 ---
 tags: [feature]
-status: designed
+status: building
 priority: P1
 stage: 3
 system_type: DataModel
@@ -63,8 +63,15 @@ Uses the **Strategy Draft** minigame from [[Playable Games]].
 | Low Gravity | Bigger jumps in cutscenes, Clutch weight +0.05 | Event only |
 
 ## Unlocks
-- Stage 3: first 2 maps of Aim Arena, scrims pick random.
-- Stage 4: full Aim Arena pool + veto in tournaments.
+- Stage 1–3: the first **3** maps of Aim Arena (Neon Docks, Old Arcade, Skyline Mall). Pickup Games pick random.
+- **Stage 3: veto in scrims and the Local Cup** (Bo1: you ban, they ban, the last map plays). Changed from "first 2 maps, veto at Stage 4" (2026-10-23): a veto needs at least 3 maps.
+- Stage 4: full 5-map pool (ban, ban, ban, ban, decider).
+
+### Built in M3 (2026-10-23)
+- `Config/Maps`: per map a stat lean (added to the title weights, then re-normalized) and role bonuses (e.g. Neon Docks Sniper +10% / Entry −3%). `MapFit = clamp(1 + Σ role bonus of the five / 5, 0.95–1.05)`.
+- Veto: tap maps in the order you'd ban them (empty = auto-ban your weakest map). AI teams ban the map where you're strongest and never their favorite. Scrim offers show your vs their power on every map in the pool. Tournament ban order is snapshotted at each lock.
+- Mastery: +2 per scrim, +1 per tournament match on the played map, `MapMastery = 1 + mastery / 100 × 0.05`. AI teams count as 60 on their favorite map, 25 elsewhere.
+- Not built yet: mastery decay, Comfort / Hate maps, Map Specialist, map modifiers, the veto screen's 10 s timer, Bo3/Bo5.
 - New titles bring their own pools when unlocked (Tower Clash Stage 5, Drop Zone Stage 7).
 
 ## Server / data requirements

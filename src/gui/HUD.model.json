@@ -1,0 +1,11 @@
+{
+  "className": "ScreenGui",
+  "properties": {
+    "ResetOnSpawn": false,
+    "Enabled": false,
+    "IgnoreGuiInset": false,
+    "ScreenInsets": "CoreUISafeInsets",
+    "ZIndexBehavior": "Sibling",
+    "DisplayOrder": 10
+  }
+}
